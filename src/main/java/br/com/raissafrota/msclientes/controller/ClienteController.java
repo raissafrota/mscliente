@@ -1,11 +1,10 @@
 package br.com.raissafrota.msclientes.controller;
 
 import br.com.raissafrota.msclientes.dto.request.ClienteRequest;
-import br.com.raissafrota.msclientes.entity.Cliente;
 import br.com.raissafrota.msclientes.service.ClienteService;
 import java.net.URI;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,12 +17,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RestController
 @RequestMapping("/clientes")
 @RequiredArgsConstructor
+@Slf4j
 public class ClienteController {
 
     private final ClienteService service;
 
     @GetMapping
     public String status(){
+        log.info("Obtendo o status do microsservice de Clientes!");
         return "Aplicação subiu! Está tudo ok!";
     }
 
